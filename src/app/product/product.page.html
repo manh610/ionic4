@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title class="text-center">product</ion-title>
+        <ion-icon slot="end" icon="cart" color="danger" size="large" style="margin-right: 20px;" (click)="goCart()"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let product of products">
+            <ion-label>
+                <h2>{{ product.title }}</h2>
+                <p> {{ product.description }}</p>
+                <p> {{ product.price | currency}} </p>
+                <ion-icon icon="heart" slot="start" color="medium" (click)="addFavorite(product.id)"></ion-icon>
+                <!-- <ion-icon *ngIf="product.status" icon="heart" slot="start" color="danger" (click)="isClick(product.id,product.status)"></ion-icon> -->
+                <ion-icon slot="start" icon="cart" color="dark"></ion-icon>
+            </ion-label>
+            <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
