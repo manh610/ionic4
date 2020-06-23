@@ -1,7 +1,7 @@
+import { Storage } from '@ionic/storage';
 import { AccountService } from './../services/account.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -9,12 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-  Id: number = this.router.getCurrentNavigation().extras.state.accountId;
   constructor(
     private alertCtrl : AlertController,
     private NavCtrl : NavController,
     private accService : AccountService,
-    private router : Router
+    private storage : Storage,
   ) { }
 
   ngOnInit() {
@@ -69,8 +68,15 @@ export class SettingPage implements OnInit {
         },
         {
           text : 'Ok',
-          handler: (input) => {
-            this.accService.changePass(input.newPass,1)
+          handler: async (input) => {
+            const accId = await this.storage.get('accountId');
+            this.accService.changePass(input.newPass,accId).subscribe ( (data) => {
+              console.log("change password success");
+              this.changepasssuccess();
+            }, error => {
+              console.log("change password fail : ", error);
+              this.changepassfail();
+            });
           }
         }
       ]

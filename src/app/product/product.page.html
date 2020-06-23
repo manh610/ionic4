@@ -13,7 +13,6 @@
                 <p> {{ product.description }}</p>
                 <p> {{ product.price | currency}} </p>
                 <ion-icon icon="heart" slot="start" color="medium" (click)="addFavorite(product.id)"></ion-icon>
-                <!-- <ion-icon *ngIf="product.status" icon="heart" slot="start" color="danger" (click)="isClick(product.id,product.status)"></ion-icon> -->
                 <ion-icon slot="start" icon="cart" color="dark"></ion-icon>
             </ion-label>
             <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>

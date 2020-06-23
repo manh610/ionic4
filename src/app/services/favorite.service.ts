@@ -16,8 +16,8 @@ export class FavoriteService {
 
   create(accountId : number, productId : number) {
     let data : any = {
-      accountId : accountId,
-      productId : productId
+      account : accountId,
+      product : productId
     }
     return this.http.post('http://localhost:3000/favorite/add',data);
   }

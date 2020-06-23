@@ -31,10 +31,10 @@ export class ProductPage implements OnInit {
       console.log("error : get all product fail");
     })
   }
-  
+
   async addFavorite(id : number) {
-    const acId = await  this.storage.get('accountId');
-    this.favService.create(acId,id).subscribe( (data:FavoriteDTO)=> {
+    const accId = await  this.storage.get('accountId');
+    this.favService.create(accId,id).subscribe( (data:FavoriteDTO)=> {
       console.log('data: ',data);       
     }, error => {
       console.log(error);
