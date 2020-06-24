@@ -45,4 +45,7 @@ export class ProductPage implements OnInit {
     this.navCtrl.navigateForward(['cart']);
   }
 
+  goBack() {
+    this.navCtrl.navigateBack(['main']);
+  }
 }

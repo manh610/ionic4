@@ -1,5 +1,5 @@
+import { ProductsDTO } from './../../product/dto/productsDTO';
 export class FavoriteDTO {
     id : number;
-    accountId : number;
-    productId : number
+    product : ProductsDTO
 }

@@ -33,9 +33,6 @@ export class HomePage {
       if ( data!=null ) {
        console.log("login success");
        this.storage.set('accountId',data.id);
-       this.storage.get('accountId').then((val)=>{
-         console.log("storage : ",val)
-       })
        this.NavCtrl.navigateForward(['main']);
       }
       else {

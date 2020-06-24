@@ -1,14 +1,17 @@
 <ion-header>
     <ion-toolbar>
+        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
         <ion-title class="text-center">favorite</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let favorite of favorites">
+        <ion-item *ngFor="let fav of favorite">
             <ion-label>
-                <h2> {{ favorite.productId }} </h2>
+                <h2> {{ fav.product.title }} </h2>
+                <h2> description : {{ fav.product.description }} </h2>
+                <h2> price : {{ fav.product.price | currency }} </h2>
             </ion-label>
             <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>
         </ion-item>

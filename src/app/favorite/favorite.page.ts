@@ -1,3 +1,4 @@
+import { ProductsDTO } from './../product/dto/productsDTO';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { FavoriteService } from './../services/favorite.service';
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite.page.scss'],
 })
 export class FavoritePage implements OnInit {
-  favorites : FavoriteDTO[];
+  favorite : FavoriteDTO[];
   constructor(
     private favService : FavoriteService,
     private navCtrl : NavController,
@@ -24,11 +25,14 @@ export class FavoritePage implements OnInit {
   async getFav() {
     const accId = await this.storage.get('accountId');
     this.favService.getByAcc(accId).subscribe( (data:FavoriteDTO[]) => {
-      this.favorites = data;
-      console.log("list fav : ",this.favorites);
+      this.favorite = data;
+      console.log("list favorite : ", this.favorite);
     }, error => {
       console.log("error : ", error);
     })
   } 
 
+  goBack() {
+    this.navCtrl.navigateBack(['main']);
+  }
 }
