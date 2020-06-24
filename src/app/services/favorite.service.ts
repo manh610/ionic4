@@ -22,4 +22,8 @@ export class FavoriteService {
     return this.http.post('http://localhost:3000/favorite/add',data);
   }
 
+  delete(id : number) {
+    return this.http.delete('http://localhost:3000/favorite/'+id);
+  }
+
 }

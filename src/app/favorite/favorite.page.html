@@ -9,9 +9,10 @@
     <ion-list>
         <ion-item *ngFor="let fav of favorite">
             <ion-label>
-                <h2> {{ fav.product.title }} </h2>
+                <h2> title : {{ fav.product.title }} </h2>
                 <h2> description : {{ fav.product.description }} </h2>
                 <h2> price : {{ fav.product.price | currency }} </h2>
+                <ion-icon name="trash" color="danger" (click)="delete(fav.id)"></ion-icon>
             </ion-label>
             <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>
         </ion-item>

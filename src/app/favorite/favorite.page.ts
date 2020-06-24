@@ -1,4 +1,3 @@
-import { ProductsDTO } from './../product/dto/productsDTO';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { FavoriteService } from './../services/favorite.service';
@@ -34,5 +33,19 @@ export class FavoritePage implements OnInit {
 
   goBack() {
     this.navCtrl.navigateBack(['main']);
+  }
+
+  delete(id:number) {
+    this.favService.delete(id).subscribe( (data)=> {
+      console.log('delete');
+      for ( var i = 0; i < this.favorite.length; i++) {
+        if ( this.favorite[i].id===id ) {
+          this.favorite.splice(i,1);
+          break;
+        }
+      }
+    }, err => {
+      console.log("delete error");
+    });
   }
 }
