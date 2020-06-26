@@ -6,17 +6,11 @@
 
 <ion-content>
     <form>
-        <div>
-            <button type="button" class="btn btn-outline-info btn-block" (click)="gosetting()">Setting</button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-outline-warning btn-block" (click)="goProducts()">Products</button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-outline-success btn-block" (click)="goFavorite()">Favorite</button>
-        </div>
-        <div>
-            <button type="button" class="btn btn-outline-danger btn-block" (click)="goCart()">Cart</button>
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-info" (click)="gosetting()">Setting</button>
+            <button type="button" class="btn btn-outline-warning " (click)="goProducts()">Products</button>
+            <button type="button" class="btn btn-outline-success " (click)="goFavorite()">Favorite</button>
+            <button type="button" class="btn btn-outline-danger " (click)="goCart()">Cart</button>
         </div>
     </form>
 

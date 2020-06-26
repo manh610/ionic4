@@ -105,4 +105,16 @@ export class SettingPage implements OnInit {
     });
     await alert.present();
   }
+
+  goProduct(){
+    this.NavCtrl.navigateForward(['product']);
+  }
+
+  goCart() {
+    this.NavCtrl.navigateForward(['cart']);
+  }
+  
+  goFavorite() {
+    this.NavCtrl.navigateForward(['favorite']);
+  }
 }

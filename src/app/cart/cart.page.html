@@ -1,10 +1,33 @@
 <ion-header>
     <ion-toolbar>
-        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
         <ion-title class="text-center">cart</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <form>
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-info" (click)="goSetting()">Setting</button>
+            <button type="button" class="btn btn-outline-warning" (click)="goProduct()">Products</button>
+            <button type="button" class="btn btn-outline-success " (click)="goFavorite()">Favorite</button>
+            <button type="button" class="btn btn-outline-danger ">Cart</button>
+        </div>
+        <hr>
+    </form>
+    <ion-list>
+        <ion-item *ngFor="let pro of productCart">
+            <ion-label>
+                <h2> title : {{ pro.title }} </h2>
+                <p> description : {{ pro.description }} </p>
+                <p> price : {{ pro.price | currency }} </p>
+                <ion-icon name="trash" color="danger" (click)="delete(pro.id)"></ion-icon>
+            </ion-label>
+            <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                <h2> bill : {{bill|currency}} </h2>
+            </ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>

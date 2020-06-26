@@ -1,20 +1,27 @@
 <ion-header>
     <ion-toolbar>
-        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
         <ion-title class="text-center">product</ion-title>
-        <ion-icon slot="end" icon="cart" color="danger" size="large" style="margin-right: 20px;" (click)="goCart()"></ion-icon>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <form>
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-info" (click)="goSetting()">Setting</button>
+            <button type="button" class="btn btn-outline-warning ">Products</button>
+            <button type="button" class="btn btn-outline-success " (click)="goFavorite()">Favorite</button>
+            <button type="button" class="btn btn-outline-danger " (click)="goCart()">Cart</button>
+        </div>
+        <hr>
+    </form>
     <ion-list>
         <ion-item *ngFor="let product of products">
             <ion-label>
                 <h2>{{ product.title }}</h2>
                 <p> {{ product.description }}</p>
                 <p> {{ product.price | currency}} </p>
-                <ion-icon icon="heart" slot="start" color="medium" (click)="addFavorite(product.id)"></ion-icon>
-                <ion-icon slot="start" icon="cart" color="dark"></ion-icon>
+                <ion-icon icon="heart" slot="start" color="medium" (click)="addFavorite(product.id, product.title)"></ion-icon>
+                <ion-icon slot="start" icon="cart" color="dark" (click)="addCart(product.id, product.title, product.description, product.price)"></ion-icon>
             </ion-label>
             <ion-icon slot="start" icon="phone-portrait" color="primary"></ion-icon>
         </ion-item>

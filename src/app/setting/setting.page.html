@@ -1,10 +1,18 @@
 <ion-header>
     <ion-toolbar>
-        <button type="button" class="btn btn-light" (click)="goBack()">Back</button>
         <ion-title class="text-center">setting</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content class="ion-margin ion-padding">
-    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="changePass()">Change password</button>
-    <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="Logout()">Logout</button>
+    <form>
+        <div class="d-flex justify-content-around">
+            <button type="button" class="btn btn-outline-info">Setting</button>
+            <button type="button" class="btn btn-outline-warning " (click)="goProduct()">Products</button>
+            <button type="button" class="btn btn-outline-success " (click)="goFavorite()">Favorite</button>
+            <button type="button" class="btn btn-outline-danger " (click)="goCart()">Cart</button>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="changePass()">Change password</button>
+        <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="Logout()">Logout</button>
+    </form>
 </ion-content>

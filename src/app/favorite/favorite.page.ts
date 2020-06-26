@@ -1,5 +1,5 @@
 import { Storage } from '@ionic/storage';
-import { NavController } from '@ionic/angular';
+import { NavController, } from '@ionic/angular';
 import { FavoriteService } from './../services/favorite.service';
 import { FavoriteDTO } from './dto/favoriteDTO';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +25,6 @@ export class FavoritePage implements OnInit {
     const accId = await this.storage.get('accountId');
     this.favService.getByAcc(accId).subscribe( (data:FavoriteDTO[]) => {
       this.favorite = data;
-      console.log("list favorite : ", this.favorite);
     }, error => {
       console.log("error : ", error);
     })
@@ -48,4 +47,17 @@ export class FavoritePage implements OnInit {
       console.log("delete error");
     });
   }
+  
+  goCart() {
+    this.navCtrl.navigateForward(['cart']);
+  }
+
+  goProduct() {
+    this.navCtrl.navigateForward(['product']);
+  }
+
+  goSetting() {
+    this.navCtrl.navigateForward(['setting']);
+  }
+
 }
